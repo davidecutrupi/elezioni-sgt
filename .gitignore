@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# google credentials file
+credentials.json

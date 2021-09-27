@@ -14,3 +14,65 @@ a {
 * {
   box-sizing: border-box;
 }
+
+input {
+  outline: none;
+}
+
+span, a {
+  user-select: none;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden; 
+  padding-top: 60px;
+  transition: 0.5s; 
+}
+.sidenav span, .sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+.sidenav span:hover, .sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav span, .sidenav a {font-size: 18px;}
+}
+
+@media only screen and (max-width: 300px) { html { font-size: 5px; } }
+@media only screen and (min-width: 301px) and (max-width: 400px) { html { font-size: 7px; } }
+@media only screen and (min-width: 401px) and (max-width: 500px) { html { font-size: 8.5px; } }
+@media only screen and (min-width: 501px) and (max-width: 600px) { html { font-size: 9px; } }
+@media only screen and (min-width: 601px) and (max-width: 700px) { html { font-size: 9.5px; } }
+@media only screen and (min-width: 701px) and (max-width: 800px) { html { font-size: 10px; } }
+@media only screen and (min-width: 801px) and (max-width: 900px) { html { font-size: 10px; } }
+@media only screen and (min-width: 901px) and (max-width: 1000px) { html { font-size: 10px; } }
+@media only screen and (min-width: 1001px) and (max-width: 1100px) { html { font-size: 10px; } }
+@media only screen and (min-width: 1101px) and (max-width: 1200px) { html { font-size: 10px; } }
+@media only screen and (min-width: 1201px) and (max-width: 1300px) { html { font-size: 11px; } }
+@media only screen and (min-width: 1301px) and (max-width: 1400px) { html { font-size: 12px; } }
+@media only screen and (min-width: 1401px) and (max-width: 1500px) { html { font-size: 12px; } }
