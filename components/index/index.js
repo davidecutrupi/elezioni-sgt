@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import useSWRImmutable  from 'swr/immutable'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Cookies from "js-cookie"
 
 import { get } from '../../libs/fetcher'
 
@@ -14,16 +15,13 @@ export const HomePage = ({ sheet, dispach }) => {
 
 	const router = useRouter()
 
-  const { data, error } = useSWRImmutable (() => `/api/sheet?criteria=COL2:COL26`, get, { onErrorRetry: (error) => {
+  const { data } = useSWRImmutable (() => `/api/sheet?criteria=COL2:COL26`, get, { onErrorRetry: (error) => {
 		if (error.status === 401) { return } 
 	} })
 
-	if (error) {
-		router.replace('/login')
-	}
-
 	// Aggiorna i dati quando abbandona la pagina
 	useEffect(() => {
+		if (!Cookies.get('logged_in')) router.replace('/login')
 		return async () => dispach({ type: 'unMount' })
 	}, [])
 
@@ -78,7 +76,7 @@ export const HomePage = ({ sheet, dispach }) => {
 				</div>
 
 				{ /* Parte candidati */ }
-				<div className='pt-16 border-black border-t-2 w-full flex-grow flex flex-col overflow-y-scroll px-20'>
+				<div className='pt-16 border-gray-200 border-t-2 w-full flex-grow flex flex-col overflow-y-scroll px-20'>
 
 					<span className='text-red-600 text-5xl font-bold'>Candidati:</span>
 
