@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useSWRConfig } from 'swr'
+import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import { post } from '../../libs/fetcher'
 
@@ -14,6 +15,7 @@ export const SideNav = ({ dispach }) => {
 			await post('/api/logout', {})
 			dispach({ type: 'set', payload: undefined })
 			cache.clear()
+			Cookies.remove('logged_in')
 			return router.replace('/login')
 		} catch {} 
 	}
