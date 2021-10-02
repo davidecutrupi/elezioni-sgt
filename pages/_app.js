@@ -11,10 +11,6 @@ export default function MyApp({ Component, pageProps }) {
 	// Aggiorna i dati quando chiudo il tab e ogni minuto
 	useEffect(() => {
 
-		/* window.addEventListener('beforeunload', (_) => {
-			dispach({ type: 'unMount' })
-		}) */
-
 		window.addEventListener('blur', (_) => {
 			dispach({ type: 'unMount' })
 		})

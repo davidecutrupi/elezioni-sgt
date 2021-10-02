@@ -29,15 +29,10 @@ export default withSession(async (req, res) => {
 		criteria = criteria.replace(/COL/g, user.column)
 
 		// Imposto l'utimo aggiornamento a ora
-		var dt = new Date()
+		let date = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome', day: '2-digit', month: '2-digit', year: 'numeric', second: '2-digit', minute: '2-digit', hour: '2-digit', hour12: false }).replace(/:/g, '.')
+		const formattedDate = `${date.substring(8, 10)}/${date.substring(5, 7)}/${date.substring(0, 4)} ${date.substring(11, )}`
+		values[5] = [formattedDate]
 
-		values[5] = [`${
-			(dt.getMonth()+1).toString().padStart(2, '0')}/${
-			dt.getDate().toString().padStart(2, '0')}/${
-			dt.getFullYear().toString().padStart(4, '0')} ${
-			dt.getHours().toString().padStart(2, '0')}:${
-			dt.getMinutes().toString().padStart(2, '0')}:${
-			dt.getSeconds().toString().padStart(2, '0')}`]
 
 		// Cambio i campi undefined con un array vuoto
 		if (!values[1]) values[1] = []
