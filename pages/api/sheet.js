@@ -30,6 +30,7 @@ export default withSession(async (req, res) => {
 
 		// Imposto l'utimo aggiornamento a ora
 		let date = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome', day: '2-digit', month: '2-digit', year: 'numeric', second: '2-digit', minute: '2-digit', hour: '2-digit', hour12: false }).replace(/:/g, '.')
+		console.log(date)
 		const formattedDate = `${date.substring(8, 10)}/${date.substring(5, 7)}/${date.substring(0, 4)} ${date.substring(11, )}`
 		values[5] = [formattedDate]
 
